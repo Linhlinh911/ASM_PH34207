@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AppData.Models.User>
+
+<h1>List Accounts</h1>
+
+<button class="btn btn-success">
+    <a asp-action="Create" style="text-decoration: none; color: #ffff">Create New</a>
+</button>
+<table class="table table-bordered table-striped mt-2">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenUser)
+            </th>
+            <th>
+
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatKhau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoDienThoai)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                <button class="btn btn-primary">
+                        @Html.ActionLink("Update", "Update", new { MaUser = item.MaUser }, new { @class = "text-white" }) 
+                </button>
+                <button class="btn btn-warning">
+                        @Html.ActionLink("Details", "Details", new { MaUser = item.MaUser }, new { @class = "text-white" }) 
+                </button>
+                <button class="btn btn-danger">
+                        @Html.ActionLink("Delete", "Delete", new { MaUser = item.MaUser }, new { @class = "text-white" })
+                </button>
+            </td>
+        </tr>
+}
+    </tbody
+</table>
+<style>
+    a.text-white {
+        text-decoration: none;
+    }
+</style>

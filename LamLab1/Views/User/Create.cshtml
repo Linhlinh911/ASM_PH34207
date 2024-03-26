@@ -1,0 +1,61 @@
+﻿@model AppData.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="text-align: center">Create</h1>
+
+<h4>Create new account</h4>
+<hr />
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Create" class="needs-validation" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaUser" class="control-label">MaUser:</label>
+                <input asp-for="MaUser" class="form-control" disabled />
+                <span asp-validation-for="MaUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenUser" class="control-label">TenUser:</label>
+                <input asp-for="TenUser" class="form-control" />
+                <span asp-validation-for="TenUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email:</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatKhau" class="control-label">MatKhau:</label>
+                <input asp-for="MatKhau" type="password" class="form-control" />
+                <span asp-validation-for="MatKhau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label">DiaChi:</label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoDienThoai" class="control-label">SoDienThoai:</label>
+                <input asp-for="SoDienThoai" class="form-control" />
+                <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Create</button>
+                </div>
+                <div>
+                    <a asp-action="Index" class="btn btn-secondary ms-3">Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AppData.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List Laptop</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+@*                 <th>MaSanPham</th> *@
+                <th>TenSanPham</th>
+                <th>MoTa</th>
+                <th>Gia</th>
+                <th>SoLuongTon</th>
+@*                 <th>MaNSX</th>
+                <th>MaBaoHanh</th> *@
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+@*                     <td>@Html.DisplayFor(modelItem => item.MaSanPham)</td> *@
+                    <td>@Html.DisplayFor(modelItem => item.TenSanPham)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MoTa)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Gia)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SoLuongTon)</td>
+@*                     <td>@Html.DisplayFor(modelItem => item.MaNSX)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MaBaoHanh)</td> *@
+                    <td>
+                        <button class="btn btn-primary">
+                            @Html.ActionLink("Update", "Update", new { MaSanPham = item.MaSanPham }, new { @class = "text-white" })
+                        </button>
+                        <button class="btn btn-warning">
+                            @Html.ActionLink("Details", "Details", new { MaSanPham = item.MaSanPham }, new { @class = "text-white" })
+                        </button>
+                        <button class="btn btn-danger">
+                            @Html.ActionLink("Delete", "Delete", new { MaSanPham = item.MaSanPham }, new { @class = "text-white" })
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<style>
+    a.text-white {
+        text-decoration: none;
+    }
+</style>
